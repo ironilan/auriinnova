@@ -1,0 +1,211 @@
+.header .inner-wrap{
+	background: #fff!important;
+}
+
+.app_menu_stick li a{
+	color: #000;
+}
+
+
+.menu li:hover>a:not(.menu-title), .menu .active>a:not(.menu-title){
+	color: #000;
+}
+
+.menu>.submenu>a{
+	color: #909292;
+}
+
+.menu>li>a{
+	color: #909292;
+}
+
+.header-left, .header-right, .header-center{
+	display: block;
+	margin: 0 auto;
+}
+
+.menu>li{
+	margin-right: 12.3rem;
+}
+
+body{
+	background: #F2F3F5;
+}
+
+.product-media{
+	border: 1px solid #E5E5E5;
+}
+
+.text-xl{
+	font-size: 16px;
+}
+
+.whatsapp{
+	width: 65px;
+    height: 65px;
+    position: fixed;
+    bottom: 50px;
+    right: 14px;
+    z-index: 1000;
+}
+
+.contenedor-whapp{
+	border-radius: 50%;
+    background: #4DC247;
+    height: 65px;
+    box-shadow: rgb(0 0 0 / 40%) 2px 2px 6px;
+}
+
+.contenedor-whapp i{
+	color: white;
+    font-size: 45px;
+    padding: 1rem 13px;
+}
+
+.list_menu li{
+	text-transform: uppercase;
+}
+
+.header-middle .logo{
+	margin-right: 0;
+}
+
+.app_obj{
+	width: 25%;
+
+}
+
+.app_flex{
+	display: flex;
+    /*align-items: center;*/
+    justify-content: center;
+}
+
+.testimonial-centered .testimonial-author-thumbnail{
+	width: 11rem;
+	height: 11rem;
+}
+
+.title{
+	color: #939595!important;
+}
+
+.page-title{
+	color: #939595!important;
+}
+
+.app_figure_unidad{
+	width: 13rem!important;
+	height: 13rem!important;
+}
+
+.logo_manofactura{
+	width: 200px!important;
+}
+
+
+
+.unidad_content div{
+	width: 40%;
+	
+}
+
+.cliente_uni {
+	width: 150px;
+	height: 80px;
+}
+
+.bg_gray{
+	background: #F2F3F5;
+}
+
+.h250{
+	height: 250px!important;
+}
+
+.testimonial-centered .testimonial-title{
+	color: #939595!important;
+}
+
+.text-justify{
+	text-align: justify;
+}
+
+.font_normal{
+	font-weight: normal!important;
+}
+
+.footer-middle label{
+	color: #999;
+	font-weight: normal;
+}
+
+.footer-middle .widget-title{
+	color: #999;
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+.mb0{
+	margin-bottom: 0!important;
+}
+
+.pd0{
+	padding: 0!important;
+}
+
+.footer_flex{
+	display: flex;
+}
+
+.footer_flex img{
+	width: 50px;
+	margin-right: 10px;
+}
+
+
+.social-links a img{
+	width: 30px;
+	margin-right: 5px;
+}
+
+.app_banner{
+	height: 400px;
+}
+
+.app_margen_mision{
+	margin-right: 26rem;
+}
+
+.mt-5_{
+	margin-top: 51px;
+}
+.filter-items a{
+	padding: 0 0 0 28px;
+}
+
+.filter-items ul{
+	position: relative;
+    margin: 1rem 0 -.5rem;
+    padding-left: 1.3rem;
+}
+
+.filter-items.search-ul li{
+	padding: 1rem 3px;
+}
+
+#product-tab-additional label{
+	min-width: 26rem!important;
+}
+
+
+
+@media (max-width: 600px) {
+  .app_margen_mision{
+  	margin-right: 26px;
+  }
+
+  .app_obj{
+  	width: 50%;
+  }
+}
