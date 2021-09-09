@@ -4,27 +4,24 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Banner extends Resource
+class Bannercategoria extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Banner::class;
+    public static $model = \App\Models\Bannercategoria::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -32,7 +29,7 @@ class Banner extends Resource
      * @var array
      */
     public static $search = [
-        'title',
+        'id',
     ];
 
     /**
@@ -45,13 +42,7 @@ class Banner extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Título', 'title')->rules('required','string', 'max:255'),
-            Text::make('Link de la image o  video', 'image'),
-            Select::make('Tipo')->options([
-                'video' => 'video',
-                'imagen' => 'imagen'
-            ])->default('imagen')
-            
+            Text::make('Link de la image', 'imagen')
         ];
     }
 

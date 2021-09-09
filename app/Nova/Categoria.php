@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Slug;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -47,7 +48,14 @@ class Categoria extends Resource
             Text::make('Título', 'titulo')->rules('required','string', 'max:255'),
             Slug::make('Slug')->from('Titulo')->separator('-')->hideFromIndex(),
             Text::make('Imagen', 'imagen')->hideFromIndex(),
+            Boolean::make('¿Quieres q aparezca en el inicio?', 'bannergroup')
+                ->trueValue('si')
+                ->falseValue('no'),
+            Boolean::make('¿Quieres q aparezca en el menu?', 'menu')
+                ->trueValue('si')
+                ->falseValue('no'),
             HasMany::make('Subcategorias'),
+            HasMany::make('bannercategorias'),
         ];
     }
 

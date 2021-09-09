@@ -161,6 +161,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                                 'target' => '_self',
                                 'path' => '/resources/bannergroups',
                                 'params' => [ 'resourceId' => 1 ]
+                            ]),
+                            InternalLink::make([
+                                'label' => 'Banner para productos',
+                                'badge' => null,
+                                'icon' => null,
+                                'target' => '_self',
+                                'path' => '/resources/bannerproductos',
+                                'params' => [ 'resourceId' => 1 ]
                             ])
                         ]                       
                     ]),

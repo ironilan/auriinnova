@@ -75,7 +75,7 @@
                                         <li><a href="{{ route('subcategorias.show', $sub) }}">{{$sub->titulo}}</a></li>
                                         @endforeach
                                         <br>
-                                        <li><a href="{{ route('productos.index') }}">Ver todo</a></li>
+                                        <li><a href="{{ route('categorias.show', $categoria) }}">Ver todo</a></li>
                                     </ul>
                                 </li>
                                 @endforeach
@@ -145,7 +145,7 @@
                                             @endforeach
                                             
                                             <br>
-                                            <li><a href="{{ route('productos.index') }}">Ver todo</a></li>
+                                            <li><a href="{{ route('categorias.show', $categoria) }}">Ver todo</a></li>
                                         </ul>
                                     </li>
                                     @endforeach

@@ -9,6 +9,32 @@ class Producto extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nombre',
+        'precio_final',
+        'precio_antes',
+        'slug',
+        'imagen',
+        'estrellas',
+        'sku',
+        'descripcion',
+        'color',
+        'codigo_color',
+        'codigo_color_filtro',
+        'procedencia',
+        'largo',
+        'ancho',
+        'alto',
+        'peso',
+        'material',
+        'atributos',
+        'limpieza',
+        'recomendaciones',
+        'categoria_id',
+        'subcategoria_id',
+        'nuevo'
+    ];
+
     public function subcategoria()
     {
         return $this->belongsTo('App\Models\Subcategoria');

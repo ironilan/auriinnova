@@ -77,7 +77,7 @@ class Producto extends Resource
             Text::make('atributos')->rules('required','string', 'max:255')->hideFromIndex(),
             Text::make('limpieza')->rules('required','string', 'max:255')->hideFromIndex(),
             Text::make('recomendaciones')->rules('required','string', 'max:255')->hideFromIndex(),
-            Text::make('advertencias')->rules('required','string', 'max:255')->hideFromIndex(),
+           // Text::make('advertencias')->rules('required','string', 'max:255')->hideFromIndex(),
             Boolean::make('Nuevo')
                 ->trueValue('si')
                 ->falseValue('no'),

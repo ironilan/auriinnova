@@ -26,11 +26,11 @@
                 <img src="{{$novedad->imagen}}" alt="{{$novedad->titulo}}"
                     class="h250">
             </a>
-           {{--  @if ($prod->nuevo == 'si')
+           @if ($novedad->nuevo == 'si')
             <div class="product-label-group">
                 <label class="product-label label-new">nuevo</label>
             </div>
-            @endif --}}
+            @endif
             
             <div class="product-action">
                 <a href="{{ route('productos.show', $novedad) }}" data-id="{{$novedad->id}}" class="btn-product btn-quickview" title="Ver más">Ver más</a>
@@ -45,10 +45,9 @@
                 <a href="{{ route('productos.show', $novedad) }}">{{$novedad->titulo}}</a>
             </h3>
             <div class="product-price">
-                <ins class="new-price">S/. {{$novedad->precio_final}}</ins>
-                @if ($novedad->precio_antes)
-                <del class="old-price">S/. {{$novedad->precio_antes}}</del>
-                @endif
+                <del class="old-price">{{$novedad->precio_antes}} </del>
+                <ins class="new-price"> S/. {{$novedad->precio_final}}</ins>
+                
             </div>
             <div class="ratings-container">
                 <div class="ratings-full">

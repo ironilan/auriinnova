@@ -29,7 +29,7 @@
 								</div>
 								@foreach ($producto->imagesproductos as $img)
 								<div class="product-thumb">
-									<img src="{{$producto->imagen}}" alt="product thumbnail"
+									<img src="{{$img->imagen}}" alt="product thumbnail"
 										width="109" height="122">
 								</div>
 								@endforeach	
@@ -112,7 +112,7 @@
 							<li><label>ANCHO APROX:</label>
 								<p>{{$producto->ancho}}</p>
 							</li>
-							<li><label>ALTO ESPESOR APROX:</label>
+							<li><label>ESPESOR APROX:</label>
 								<p>{{$producto->alto}}</p>
 							</li>
 							<li><label>PESO APROX:</label>
@@ -127,10 +127,10 @@
 							<li><label>ATRIBUTOS:</label>
 								<p>{{$producto->atributos}}</p>
 							</li>
-							<li><label>LIMPIEZA Y/O MANTENIMIENTO:</label>
+							<li><label>LIMPIEZA:</label>
 								<p>{{$producto->limpieza}}</p>
 							</li>
-							<li><label>RECOMENDACIONES / ADVERTENCIAS:</label>
+							<li><label>RECOMENDACIONES:</label>
 								<p>{{$producto->recomendaciones}}</p>
 							</li>
 						</ul>

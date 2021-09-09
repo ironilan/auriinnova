@@ -19,6 +19,19 @@ class ProductoController extends Controller
     }
 
 
+    public function getProductosAll()
+    {
+        if (count(Producto::all()) > 20) {
+            $productos = Producto::all()->random(20);
+        }else{
+            $productos = Producto::get()->take(20);
+        }
+        
+
+        return view('response.productos', compact('productos'));
+    }
+
+
     public function producto_ajax(Request $request)
     {
 
@@ -84,7 +97,14 @@ class ProductoController extends Controller
 
     public function getProductosRelacionados(Request $request)
     {
-        $productos = Producto::all()->random(3);
+        $productos = Producto::all();
+
+        if (count($productos) > 7) {
+            $productos = Producto::all()->random(8);
+        }else{
+            $productos = [];
+        }
+        
 
 
         return view('response.productosRelacionados', compact('productos'));

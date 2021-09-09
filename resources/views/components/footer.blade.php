@@ -14,7 +14,9 @@
                             <!-- <h4 class="widget-title font_normal">Suscríbete</h4>
                              -->
                         </div>
-                        <form action="#" class="input-wrapper input-wrapper-inline">
+                        <form class="input-wrapper input-wrapper-inline" id="suscripcion">
+                            @csrf
+                            
                             <input type="email" class="form-control" name="email" id="newsletter-email1"
                                 placeholder="Email aquí..." required />
                             <button class="btn btn-primary btn-md ml-2" type="submit">subscribir<i
@@ -117,15 +119,21 @@
             </div>
             <div class="footer-right">
                 <div class="social-links">
-                    <a href="#" class="social-facebook ">
+                    @if (setting()->facebook)
+                    <a href="{{setting()->facebook}}" target="_blank" class="social-facebook ">
                         <img src="{{asset('frontend/images/footer/fb.png')}}" alt="facebook">
                     </a>
-                    <a href="#" class="social-instagram ">
+                    @endif
+                    @if (setting()->instagram)
+                    <a href="{{setting()->instagram}}" target="_blank" class="social-instagram ">
                         <img src="{{asset('frontend/images/footer/ig.png')}}" alt="instagram">
                     </a>
-                    <a href="#" class="social-twitter ">
+                    @endif
+                    @if (setting()->twitter)
+                    <a href="{{setting()->twitter}}" target="_blank" class="social-twitter ">
                         <img src="{{asset('frontend/images/footer/tw.png')}}" alt="twitter">
                     </a>
+                    @endif
                 </div>
             </div>
         </div>

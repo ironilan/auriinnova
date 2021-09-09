@@ -97,10 +97,9 @@
 								<a href="{{ route('productos.show', $prod) }}">{{$prod->nombre}}</a>
 							</h3>
 							<div class="product-price">
+                                <del class="old-price">{{$prod->precio_antes}}</del>
 								<ins class="new-price">S/. {{$prod->precio_final}}</ins>
-								@if ($prod->precio_antes)
-				                <del class="old-price">S/. {{$prod->precio_antes}}</del>
-				                @endif
+								
 							</div>
 							<div class="ratings-container">
 								<div class="ratings-full">

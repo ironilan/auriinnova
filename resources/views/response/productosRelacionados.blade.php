@@ -1,7 +1,7 @@
-<div class="owl-carousel owl-theme row owl-nav-full cols-2 cols-md-3 cols-lg-4" data-owl-options="{
+<div class="owl-carousel owl-theme row  cols-2 cols-md-3 cols-lg-4" data-owl-options="{
         'items': 5,
-        'nav': false,
-        'loop': false,
+        'nav': true,
+        'loop': true,
         'dots': true,
         'margin': 20,
         'autoplay': true,
@@ -13,9 +13,9 @@
                 'items': 3
             },
             '992': {
-                'items': 4,
-                'dots': false,
-                'nav': false
+                'items': 5,
+                'dots': true,
+                'nav': true
             }
         }
     }">
@@ -46,10 +46,9 @@
                 <a href="{{ route('productos.show', $prodRel) }}">{{$prodRel->nombre}}</a>
             </h3>
             <div class="product-price">
-                <ins class="new-price">S/. {{$prodRel->precio_final}}</ins>
-                @if ($prodRel->precio_antes)
-                <del class="old-price">S/. {{$prodRel->precio_antes}}</del>
-                @endif
+                <del class="old-price">{{$prodRel->precio_antes}} </del>
+                <ins class="new-price"> S/. {{$prodRel->precio_final}}</ins>
+                
             </div>
             <div class="ratings-container">
                 <div class="ratings-full">

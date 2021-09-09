@@ -2,6 +2,7 @@
 
 
 
+use App\Http\Controllers\dashboard\AdminController;
 use App\Http\Controllers\frontend\CategoriaController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\MailController;
@@ -50,6 +51,8 @@ Route::get('buscar', [ProductoController::class, 'searchProducto'])->name('searc
 //ajax
 Route::get('getCategorias', [HomeController::class, 'getCategorias'])->name('getCategorias');
 Route::get('getNovedades', [HomeController::class, 'getNovedades'])->name('getNovedades');
+Route::get('getProductosAll', [ProductoController::class, 'getProductosAll'])->name('getProductosAll');
+
 
 Route::get('getProductosCategoria', [ProductoController::class, 'getProductosCategoria'])->name('getProductosCategoria');
 
@@ -62,3 +65,32 @@ Route::get('getProductosRelacionados', [ProductoController::class, 'getProductos
 
 
 Route::get('producto_ajax', [ProductoController::class, 'producto_ajax'])->name('producto_ajax');
+
+//banners de productos y categorias
+Route::get('getBannerProductos', [HomeController::class, 'getBannerProductos'])->name('getBannerProductos');
+Route::get('getBannerCategorias', [HomeController::class, 'getBannerCategorias'])->name('getBannerCategorias');
+
+
+Route::post('suscribir', [HomeController::class, 'suscribir'])->name('suscripcion');
+
+
+/*******************************/
+// Route::get('admin/import', [AdminController::class, 'cargar'])->name('cargar');
+// Route::post('admin/import', [AdminController::class, 'import_productos'])->name('cargar.import_productos');
+
+Route::get('config_cache', function(){
+	Artisan::call('config:cache');
+	return 'cache limpia...';
+});
+
+
+Route::get('storage_link', function(){
+	Artisan::call('storage:link');
+	return 'storage linkeado...';
+});
+
+
+Route::get('sitemap_generate', function(){
+	Artisan::call('sitemap:generate');
+	return 'storage linkeado...';
+});

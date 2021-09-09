@@ -4,28 +4,11 @@
 
 <main class="main">
 	<section class="intro-section">
-	        <div class="">
-	                <div class="owl-carousel owl-theme row owl-dot-inner owl-dot-white intro-slider animation-slider cols-1 gutter-no"
-	                data-owl-options="{
-	                'nav': false,
-	                'dots': true,
-	                'loop': true,
-	                'items': 1,
-	                'autoplay': true,
-	                'autoplayTimeout': 8000
-	            }">
-	                <div class="banner banner-fixed intro-slide1 app_banner" style="background-color: red;">
-	                    <img src="{{asset('frontend/images/bg/banner2.jpg')}}" alt="">
-	                   
-	                </div>
-	                <div class="banner banner-fixed intro-slide1 app_banner" style="background-color: #dddee0;">
-	                    <img src="{{asset('frontend/images/bg/banner2.jpg')}}" alt="">
-	                   
-	                </div>
-	            </div>
-	        
-	        </div>
-	    </section>
+        <div class="" id="responseBanner">
+            
+        
+        </div>
+    </section>
 	<!-- End PageHeader -->
 	<div class="page-content mb-10 bg-white">
 		<div class="container">
@@ -41,7 +24,7 @@
 								<a href="#"
 									class="sidebar-toggle-btn toggle-remain btn btn-sm btn-outline btn-primary">Filtrar<i
 										class="d-icon-arrow-left"></i></a>
-								<a href="#" class="filter-clean text-primary">Limpiar</a>
+								{{-- <a href="#" class="filter-clean text-primary">Limpiar</a> --}}
 							</div>
 							<div class="widget widget-collapsible">
 								<h3 class="widget-title">Categorías</h3>
@@ -49,7 +32,7 @@
 									@foreach ($categorias as $cat)
 									@if (isset($categoria))
 									<li class="with-ul {{$cat->id == $categoria->id ? 'show' : ''}}">
-										<a href="javascript:void(0)">{{$cat->titulo}}</a>
+										<a href="javascript:void(0)" onclick="getBannerCategoria({{$cat->id}})">{{$cat->titulo}}</a>
 										<ul style="{{$cat->id == $categoria->id ? 'display: block' : 'display: none'}}">
 									@else
 									<li class="with-ul ">
@@ -79,27 +62,6 @@
 
 						
 					</div>
-					{{-- <nav class="toolbox toolbox-pagination">
-						<!-- <p class="show-info">mostr <span>12 of 56</span> Products</p> -->
-						<ul class="pagination mx-auto">
-							<li class="page-item disabled">
-								<a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1"
-									aria-disabled="true">
-									<i class="d-icon-arrow-left"></i>Ant
-								</a>
-							</li>
-							<li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a>
-							</li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item page-item-dots"><a class="page-link" href="#">6</a></li>
-							<li class="page-item">
-								<a class="page-link page-link-next" href="#" aria-label="Next">
-									Prox<i class="d-icon-arrow-right"></i>
-								</a>
-							</li>
-						</ul>
-					</nav> --}}
 				</div>
 			</div>
 		</div>
@@ -170,14 +132,46 @@
     }
 
 
+    const getBanner = () => {
+    	let url = '{{ url('getBannerProductos') }}'
+
+    	$.get(url, res => {
+    		$('#responseBanner').html(res);
+    	});
+    }
+
+    const getBannerCategoria = (idcategoria) => {
+    	let url = `{{ url('getBannerCategorias') }}?categoria_id=${idcategoria}`;
+    	//console.log('ssddddddddd');
+    	$.get(url, res => {
+    		$('#responseBanner').html(res);
+    	});
+    }
+
+
+    const getProductosAll = () => {
+    	let url = '{{ url('getProductosAll') }}';
+    	$.get(url, res => {
+    		$('#responseProductos').html(res);
+    	});
+    }
+
+
 	$(document).ready(() =>{
-		@if(isset($categoria))
-		getProductosCategoria('{{$categoria->id}}');
+		@if (Request::path() == 'productos')
+			getProductosAll();
 		@else
-		getSubcategoriaMedidas('{{$subcategoria->id}}');
+			@if(isset($categoria))
+			getProductosCategoria('{{$categoria->id}}');
+			@else
+			getSubcategoriaMedidas('{{$subcategoria->id}}');
+			@endif
 		@endif
+		
 
         getProductosRelacionados();
+
+        getBanner();
 	});
 </script>
 @endsection

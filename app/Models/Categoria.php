@@ -22,4 +22,9 @@ class Categoria extends Model
     {
         return $this->hasMany('App\Models\Subcategoria')->orderBy('titulo', 'asc');
     }
+
+    public function bannercategorias()
+    {
+        return $this->hasMany('App\Models\Bannercategoria');
+    }
 }

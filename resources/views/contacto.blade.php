@@ -18,7 +18,7 @@
                             <figure class="testimonial-author-thumbnail">
                                 <img src="{{Storage::url(setting()->imagen_horario)}}" alt="user" width="140" height="140" />
                             </figure>
-                            <blockquote>{{setting()->horario}}</blockquote>
+                            <blockquote>{!!setting()->horario!!}</blockquote>
                             
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                             <figure class="testimonial-author-thumbnail">
                                 <img src="{{Storage::url(setting()->imagen_atencion)}}" alt="user" width="140" height="140" />
                             </figure>
-                            <blockquote>{{setting()->phone}} <br> {{setting()->cellphone}}</blockquote>
+                            <blockquote>{{setting()->phone}} <br> +{{setting()->cellphone}}</blockquote>
                             
                         </div>
                     </div>

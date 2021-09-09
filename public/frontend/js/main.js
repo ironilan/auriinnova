@@ -2260,8 +2260,8 @@ window.Donald = {};
                     this.firstElementChild.appendChild(i);
                 }
             });
-            $('.with-ul > a i, .toggle-btn').on('click', function (e) {
-                $(this).parent().next().slideToggle(300).parent().toggleClass("show");
+            $('.with-ul > a , .toggle-btn').on('click', function (e) {
+                $(this).next().slideToggle(300).parent().toggleClass("show");
                 setTimeout(function () {
                     $('.sticky-sidebar').trigger('recalc.pin');
                 }, 320);
@@ -2737,7 +2737,7 @@ window.Donald = {};
                 let idprod = e.target.getAttribute('data-id');
                 Donald.popup({
                     items: {
-                        src: "http://localhost:8000/producto_ajax?idprod="+idprod
+                        src: "/producto_ajax?idprod="+idprod
                     },
                     callbacks: {
                         ajaxContentAdded: function () {
