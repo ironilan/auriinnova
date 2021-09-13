@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -43,7 +44,11 @@ class Bannerinferior extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Título', 'titulo')->rules('required','string', 'max:255'),
-            Text::make('Link de la image', 'imagen')
+            Text::make('Link de la image', 'imagen'),
+            Select::make('Tipo')->options([
+                'video' => 'video',
+                'imagen' => 'imagen'
+            ])->default('imagen')
         ];
     }
 

@@ -50,7 +50,8 @@ class Config extends Resource
             Text::make('Título', 'title')->rules('required','string', 'max:255'),
             Text::make('Dirección', 'address')->rules('required','string', 'max:255')->hideFromIndex(),
             Image::make('Logo')->disk('public')->disableDownload(),
-            Image::make('Logo_blanco')->disk('public')->disableDownload(),
+            Image::make('Favicon (.ico)', 'favicon')->disk('public')->disableDownload(),
+            Image::make('Logo pie de página','logo_blanco')->disk('public')->disableDownload(),
             
             Heading::make('Contacto'),
             Text::make('Celular', 'cellphone')->rules('required','string', 'min:7','max:15')->hideFromIndex(),

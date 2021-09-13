@@ -31,6 +31,7 @@ class CreateConfigsTable extends Migration
             $table->string('imagen_horario')->nullable();
             $table->text('map')->nullable();
             $table->string('logo')->nullable();
+            $table->string('fvicon')->nullable();
             $table->string('logo_footer')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();

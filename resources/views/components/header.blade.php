@@ -24,7 +24,7 @@
     <div class="header-middle sticky-header fix-top sticky-content has-center">
         <div class="container">
             <div class="header-left">
-                <a href="#" class="mobile-menu-toggle">
+                <a href="#" class="mobile-menu-toggle__">
                     <i class="d-icon-bars2"></i>
                 </a>
                 <a href="{{ url('/') }}" class="logo d-none d-lg-block">
@@ -103,19 +103,6 @@
                 
                 
 
-                {{-- <div class="header-search hs-toggle mobile-search">
-                    <a href="#" class="search-toggle">
-                        <i class="d-icon-search"></i>
-                    </a>
-                    <form action="#" class="input-wrapper">
-                        <input type="text" class="form-control" name="search" autocomplete="off"
-                            placeholder="Search your keyword..." required />
-                        <button class="btn btn-search" type="submit">
-                            <i class="d-icon-search"></i>
-                        </button>
-                    </form>
-                </div> --}}
-                <!-- End of Header Search -->
             </div>
         </div>
     </div>
@@ -173,6 +160,84 @@
                 </div>
                 
             </div>
+        </div>
+    </div>
+
+    {{--  menu movil  --}}
+    <div class="contenedor">
+        <div class="">
+            <i class="fas fa-times btn_close"></i>
+            <nav class="">
+                <ul class="nav_movil ">
+                    <li class="{{$pagina == 'inicio' ? 'app_active_movil' : ''}}">
+                        <a href="{{ url('/') }}" class="text-uppercase item_movil">Inicio</a>
+                    </li>
+                    <li class="{{$pagina == 'nosotros' ? 'app_active_movil' : ''}}">
+                        <a href="{{ url('nosotros') }}" class="text-uppercase item_movil">La empresa</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="text-uppercase list_pos item_movil {{$pagina == 'productos' ? 'app_active_movil' : ''}}" id="producto">
+                            Productos
+                            <i class="fas fa-angle-down"></i>
+                        </a>
+                        <ul class="nav_movil max_heigh_menu" id="lista_productos">
+                            {{-- <li><strong class="text-uppercase">Categorías</strong></li> --}}
+                            @foreach (categorias() as $categoria)
+                            <li class="categoria_item">
+                                <a href="#" class="text-uppercase">{{$categoria->titulo}}</a>
+                                <i class="fas fa-angle-down" onclick="verSubcategorias('cat_{{$categoria->id}}')"></i>
+                                <ul class="nav_movil max_heigh_menu" id="cat_{{$categoria->id}}">
+                                    @foreach ($categoria->subcategorias as $sub)
+                                    <li><a href="{{ route('subcategorias.show', $sub) }}">{{$sub->titulo}}</a></li>
+                                    @endforeach
+                                    <br>
+                                    <li><a href="{{ route('categorias.show', $categoria) }}">Ver todo</a></li>
+                                </ul>
+                            </li>
+                            @endforeach
+                            <br>
+                            <li><a href="{{ route('productos.index') }}">Ver todo</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="text-uppercase list_pos item_movil {{$pagina == 'unidades' ? 'app_active_movil' : ''}}" id="unidades">
+                            Unidades de negocio 
+                            <i class="fas fa-angle-down"></i>
+                        </a>
+                        <ul class="nav_movil max_heigh_menu" id="lista_unidades">
+                            @foreach (unidades() as $unidad)
+                            <li><a href="{{ route('unidades.show', $unidad) }}" class="text-uppercase">{{$unidad->titulo}}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+                   
+                    <!-- End of Dropdown -->
+                    <li class="{{$pagina == 'contacto' ? 'app_active_movil' : ''}}">
+                        <a href="{{ url('contacto') }}" class="text-uppercase item_movil">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <hr>
+        <div class="buscador">
+
+            <form action="{{ url('buscar') }}" method="get" class="app_form_movil" autocomplete="off">
+                <h5 class="titulo_buscador">Busca tu producto</h5>
+                <div class="">
+                    <select id="category" name="idcategoria" class="input_movil">
+                        <option value="">Categorías</option>
+                        @foreach (categorias() as $categ)
+                        <option value="{{$categ->id}}">{{$categ->titulo}}</option>
+                        @endforeach
+                       
+                    </select>
+                </div>
+                <input type="text" class="input_movil" name="criterio" id="search"
+                    placeholder="Ingresa el producto que estas buscando..." required="">
+                <button class="btn btn-sm btn-search btn_movil" type="submit">
+                    Buscar
+                </button>
+            </form>
         </div>
     </div>
 </header>

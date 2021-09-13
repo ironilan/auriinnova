@@ -30,7 +30,7 @@
         <!-- End of FooterTop -->
         <div class="footer-middle">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="widget ml-lg-4">
                         <h4 class="widget-title">La empresa</h4>
                         <ul class="widget-body">
@@ -43,7 +43,7 @@
                     </div>
                     <!-- End of Widget -->
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="widget">
                         <h4 class="widget-title">Tienda Principal</h4>
                         <ul class="widget-body">

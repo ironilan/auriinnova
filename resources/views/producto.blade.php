@@ -11,25 +11,25 @@
 							<figure class="product-image">
 								<img src="{{$producto->imagen}}"
 									data-zoom-image="{{$producto->imagen}}"
-									alt="Women's Brown Leather Backpacks" width="800" height="900">
+									alt="{{$producto->imagen}}" width="800" height="900" >
 							</figure>
 							@foreach ($producto->imagesproductos as $img)
 							<figure class="product-image">
 								<img src="{{$img->imagen}}"
 									data-zoom-image="{{$img->imagen}}"
-									alt="Women's Brown Leather Backpacks" width="800" height="900">
+									alt="{{$img->imagen}}" width="800" height="900" >
 							</figure>
 							@endforeach	
 						</div>
 						<div class="product-thumbs-wrap">
 							<div class="product-thumbs">
 								<div class="product-thumb active">
-									<img src="{{$producto->imagen}}" alt="product thumbnail"
-										width="109" height="122">
+									<img src="{{$producto->imagen}}" alt="{{$producto->imagen}}"
+										width="109" height="122" >
 								</div>
 								@foreach ($producto->imagesproductos as $img)
 								<div class="product-thumb">
-									<img src="{{$img->imagen}}" alt="product thumbnail"
+									<img src="{{$img->imagen}}" alt="{{$img->imagen}}"
 										width="109" height="122">
 								</div>
 								@endforeach	
@@ -56,6 +56,7 @@
 						<div class="product-meta">
 							SKU: <span class="product-sku">{{$producto->sku}}</span>
 						</div>
+						<small>{{$producto->precio_antes}}</small>
 						<div class="product-price">S/. {{$producto->precio_final}}</div>
 						<div class="ratings-container">
 							<div class="ratings-full">
@@ -151,10 +152,16 @@
 	</div>
 </main>
 
+
+@endsection
+
+@section('estilos')
+
 @endsection
 
 
 @section('scripts')
+
 <script>
 	const getProductosRelacionados = () => {
         let url = `{{ url('getProductosRelacionados') }}`;
@@ -166,7 +173,7 @@
 
 	$(document).ready(() =>{
 		
-
+		$('.image-link').magnificPopup({type:'image'});
         getProductosRelacionados();
 	});
 </script>

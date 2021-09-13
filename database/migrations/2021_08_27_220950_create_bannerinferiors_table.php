@@ -16,6 +16,7 @@ class CreateBannerinferiorsTable extends Migration
         Schema::create('bannerinferiors', function (Blueprint $table) {
             $table->id();
             $table->string('titulo')->nullable();
+            $table->enum('tipo', ['imagen', 'video'])->default('imagen');
             $table->string('imagen')->nullable();
             $table->timestamps();
         });

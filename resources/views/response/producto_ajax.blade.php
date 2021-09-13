@@ -40,6 +40,7 @@
 			<div class="product-meta">
 				SKU: <span class="product-sku">{{$producto->sku}}</span>
 			</div>
+			<small>{{$producto->precio_antes}}</small>
 			<div class="product-price">S/. {{$producto->precio_final}}</div>
 			<div class="ratings-container">
 				<div class="ratings-full">

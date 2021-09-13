@@ -11,7 +11,7 @@
     <meta name="author" content="D-THEMES">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('frontend/images/favicon.ico') }}">
+    <link rel="icon" type="image/ico" href="{{Storage::url(setting()->favicon)}}">
 
     <script>
         WebFontConfig = {
@@ -183,6 +183,32 @@
                 }
             }); 
         });
+
+
+        $('.mobile-menu-toggle__').click(() => {
+            $('.contenedor').show();
+        });
+
+        $('.btn_close').click(() => {
+            $('.contenedor').hide();
+        });
+
+
+        $('#producto').click(() => {
+            $('#producto').toggleClass('app_active_movil');
+            $('#lista_productos').toggleClass('item_show_movil');
+        });
+
+        $('#unidades').click(() => {
+            $('#unidades').toggleClass('app_active_movil');
+            $('#lista_unidades').toggleClass('item_show_movil');
+        });
+
+
+        const verSubcategorias = cat => {
+            $('#'+cat).toggleClass('item_show_movil');
+            console.log(cat);
+        }
     </script>
 
 </body>

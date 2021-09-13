@@ -117,7 +117,7 @@
 
         <section class="intro-section">
             <div class="">
-                    <div class="owl-carousel owl-theme row owl-dot-inner owl-dot-white intro-slider animation-slider cols-1 gutter-no"
+                <div class="owl-carousel owl-theme row owl-dot-inner owl-dot-white intro-slider animation-slider cols-1 gutter-no"
                     data-owl-options="{
                     'nav': false,
                     'dots': true,
@@ -126,14 +126,22 @@
                     'autoplay': true,
                     'autoplayTimeout': 8000
                 }">
-                    @foreach ($bannerinferior as $bi)
+                    {{-- @foreach ($bannerinferior as $bi)
                     <div class="banner banner-fixed intro-slide1" style="background-color: #dddee0;">
                         <img src="{{$bi->imagen}}" alt="">
                     </div>
+                    @endforeach --}}
+                    @foreach ($bannerinferior as $bi)
+                    <div class="banner banner-fixed {{$bi->tipo == 'imagen' ? 'intro-slide1 ' : 'video-banner intro-slide3'}}" >
+                        @if ($bi->tipo == 'imagen')
+                        <img src="{{$bi->imagen}}" alt="{{$bi->titulo}}"> 
+                        @else
+                        <figure>
+                            <video src="{{$bi->imagen}}" width="1903" height="630"></video>
+                        </figure>
+                        @endif          
+                    </div>
                     @endforeach
-                    {{-- <div class="banner banner-fixed intro-slide1" style="background-color: #cacaca;">
-                        <img src="images/bg/banner2.jpg" alt="">
-                    </div> --}}
                     
                 </div>
             

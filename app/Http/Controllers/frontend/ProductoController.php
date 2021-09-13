@@ -14,20 +14,22 @@ class ProductoController extends Controller
     {
         $pagina = 'productos';
         $categorias = Categoria::orderBy('titulo', 'asc')->get();
-        $categoria = Categoria::first();
-        return view('productos', compact('pagina', 'categorias', 'categoria')); 
+        //$categoria = Categoria::first();
+        return view('productos', compact('pagina', 'categorias')); 
     }
 
 
     public function getProductosAll()
     {
-        if (count(Producto::all()) > 20) {
-            $productos = Producto::all()->random(20);
-        }else{
-            $productos = Producto::get()->take(20);
-        }
-        
+        // if (count(Producto::all()) > 20) {
+        //     $productos = Producto::all()->random(20);
+        // }else{
+        //     $productos = Producto::get()->take(20);
+        // }
 
+        $productos = Producto::paginate(20);
+        
+        //return response()->json($productos);
         return view('response.productos', compact('productos'));
     }
 
@@ -65,10 +67,11 @@ class ProductoController extends Controller
     {
         $idsubcategoria = $request->idsubcategoria;
 
-        $productos = Producto::where('subcategoria_id', $idsubcategoria)->orderBy('precio_final', 'asc')->get();
+        $productos = Producto::where('subcategoria_id', $idsubcategoria)->orderBy('precio_final', 'asc')->paginate(20);
 
+        //return response()->json($productos);
         //
-        return view('response.productos', compact('productos'));
+        return view('response.productosSubcategoria', compact('productos'));
     }
 
 
@@ -99,8 +102,8 @@ class ProductoController extends Controller
     {
         $productos = Producto::all();
 
-        if (count($productos) > 7) {
-            $productos = Producto::all()->random(8);
+        if (count($productos) > 19) {
+            $productos = Producto::all()->random(20);
         }else{
             $productos = [];
         }

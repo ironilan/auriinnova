@@ -3,7 +3,7 @@
 @section('contenido')
 
 <main class="main">
-	<section class="intro-section">
+	<section class="intro-section" style="height: 40rem;">
         <div class="" id="responseBanner">
             
         
@@ -57,11 +57,8 @@
 					<div class="mb-4 mt-4" id="responseMedidas">
 						
 					</div>
-					<div class="row cols-2 cols-sm-3 cols-md-4 product-wrapper" id="responseProductos">
-						
-
-						
-					</div>
+					<div id="responseProductos"></div>
+					
 				</div>
 			</div>
 		</div>
@@ -173,5 +170,34 @@
 
         getBanner();
 	});
+
+
+
+	//***** paginacion ****************/
+	$(document).on('click', '.productosAll nav .pagination a', function(e){
+		e.preventDefault();
+
+		let page = $(this).attr('href').split('page=')[1];
+		let route = `{{ url('getProductosAll') }}?page=${page}`;
+
+		$.get(route, res => {
+			$('#responseProductos').html(res);
+		});
+	});
+
+	$(document).on('click', '.paginateSubctegoria nav .pagination a', function(e){
+		e.preventDefault();
+
+		let page = $(this).attr('href').split('page=')[1];
+		let subcategoria = $('.paginateSubctegoria').attr('data-id');
+		let route = `{{ url('getProductosSubcategoria') }}?idsubcategoria=${subcategoria}&page=${page}`;
+
+
+		$.get(route, res => {
+			$('#responseProductos').html(res);
+		});
+	});
+
+
 </script>
 @endsection

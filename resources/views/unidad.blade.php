@@ -23,7 +23,7 @@
                     </div>
                 </section>
 
-
+                @if ($unidad->lineas)
                 <section class="contact-section pb-10 pt-10 bg_gray">
                     <div class="container">
                         <h2 class="title">Líneas de productos</h2>
@@ -47,9 +47,11 @@
                         </div>
                     </div>
                 </section>
+                @endif
                 
                 
-
+                
+                @if ($unidad->valoragregado)
                 <section class=" pt-10 pb-10 appear-animate bg-white" data-animation-options="{
                     'delay': '.3s'
                 }">
@@ -66,6 +68,8 @@
                         </div>
                     </div>
                 </section>
+                @endif
+                
 
 
                 

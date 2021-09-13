@@ -45,7 +45,7 @@
 						
 </div>
 
-<div class="productosAll">
+<div class="paginateSubctegoria" data-id="{{$prod->subcategoria ? $prod->subcategoria->id : ''}}">
 	{{$productos->links()}}
 </div>
 
