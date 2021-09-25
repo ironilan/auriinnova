@@ -23,7 +23,7 @@
                     </div>
                 </section>
 
-                @if ($unidad->lineas)
+                @if (count($unidad->lineas) > 0)
                 <section class="contact-section pb-10 pt-10 bg_gray">
                     <div class="container">
                         <h2 class="title">Líneas de productos</h2>
@@ -51,7 +51,7 @@
                 
                 
                 
-                @if ($unidad->valoragregado)
+                @if (count($unidad->valoragregado) > 0 )
                 <section class=" pt-10 pb-10 appear-animate bg-white" data-animation-options="{
                     'delay': '.3s'
                 }">
@@ -104,7 +104,7 @@
                             }
                         }">
                             @foreach ($clientes as $cliente)
-                            <figure><img src="{{$cliente->logo}}" alt="{{$cliente->titulo}}" width="180" height="100" />
+                            <figure><img src="{{$cliente->logo}}" alt="{{$cliente->titulo}}" class="img_cliente" />
                             </figure>
                             @endforeach
                            

@@ -1,7 +1,6 @@
-@extends('layouts.front_producto')
+@extends('layouts.frontend')
 
 @section('contenido')
-
 <main class="main pt-4 bg-white">
 	<div class="page-content mb-10 ">
 		<div class="container">
@@ -152,7 +151,14 @@
 		</div>
 	</div>
 </main>
+
+
 @endsection
+
+@section('estilos')
+
+@endsection
+
 
 @section('scripts')
 
@@ -161,31 +167,7 @@
         let url = `{{ url('getProductosRelacionados') }}`;
         $.get(url, res =>{
             $('#responseProductosRelacionados').html(res);
-            
-	        setTimeout(() => {
-	            	$(".carousel_relacionados").owlCarousel({
-						'items': 5,
-					        'nav': true,
-					        'loop': true,
-					        'dots': true,
-					        'margin': 20,
-					        'autoplay': true,
-					        'responsive': {
-					            '0': {
-					                'items': 2
-					            },
-					            '768': {
-					                'items': 3
-					            },
-					            '992': {
-					                'items': 5,
-					                'dots': true,
-					                'nav': true
-					            }
-					        }
-					});
-	            }, 1000)
-	        });
+        });
     }
 
 

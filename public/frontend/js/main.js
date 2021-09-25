@@ -1616,7 +1616,7 @@ window.Donald = {};
             $slider.on('initialized.owl.carousel', function (e) {
 
                 // if not quickview, make full image toggle
-                self.isQuickview || $slider.append('<a href="#" class="product-image-full"><i class="d-icon-zoom11"></i></a>');
+                self.isQuickview || $slider.append('<a href="#" class="product-image-full"><i class="fas fa-expand"></i></a>');
 
                 // init thumbnails
                 thumbsInit(self);

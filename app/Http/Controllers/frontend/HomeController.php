@@ -69,7 +69,7 @@ class HomeController extends Controller
     public function getCategorias()
     {
         $categorias = Categoria::where('bannergroup', 'si')->orderBy('id', 'desc')->get();
-
+        //dd('ssss');
         return view('response.categorias', compact('categorias'));
     }
 

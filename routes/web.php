@@ -83,6 +83,11 @@ Route::get('config_cache', function(){
 	return 'cache limpia...';
 });
 
+Route::get('view_clear', function(){
+	Artisan::call('view:clear');
+	return 'cache limpia...';
+});
+
 
 Route::get('storage_link', function(){
 	Artisan::call('storage:link');

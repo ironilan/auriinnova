@@ -1,24 +1,4 @@
-<div class="owl-carousel owl-theme row  cols-2 cols-md-3 cols-lg-4" data-owl-options="{
-        'items': 5,
-        'nav': true,
-        'loop': true,
-        'dots': true,
-        'margin': 20,
-        'autoplay': true,
-        'responsive': {
-            '0': {
-                'items': 2
-            },
-            '768': {
-                'items': 3
-            },
-            '992': {
-                'items': 5,
-                'dots': true,
-                'nav': true
-            }
-        }
-    }">
+<div class="owl-carousel owl-theme carousel_relacionados">
     
     @foreach ($productos as $prodRel)
     <div class="product">

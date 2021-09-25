@@ -34,11 +34,11 @@
                     <div class="widget ml-lg-4">
                         <h4 class="widget-title">La empresa</h4>
                         <ul class="widget-body">
-                            <li><a href="{{ url('nosotros') }}">Quienes somos</a></li>
+                            <li><a href="{{ url('nosotros') }}">Quiénes somos</a></li>
                             <li><a href="{{ url('nosotros') }}">Misión y Visión</a></li>
                             <li><a href="{{ url('nosotros') }}">Valores</a></li>
                             <li><a href="{{ url('terminos-y-condiciones') }}">Términos y condiciones</a></li>
-                            <li><a href="{{ url('politicas-de-privacidad') }}">Políticas de privcidad</a></li>
+                            <li><a href="{{ url('politicas-de-privacidad') }}">Políticas de privacidad</a></li>
                         </ul>
                     </div>
                     <!-- End of Widget -->
@@ -47,7 +47,7 @@
                     <div class="widget">
                         <h4 class="widget-title">Tienda Principal</h4>
                         <ul class="widget-body">
-                            <li><a href="#">{{setting()->address}}</a></li>
+                            <li><a href="#">{!!setting()->address!!}</a></li>
                             <li class="">
                                 <label>Horario de atención</label>                                
                             </li>
@@ -66,9 +66,9 @@
                             <!-- <li class="text-uppercase">Métodos de pago</li> -->
                             <li class="mt-5_">
                                 <div class="footer_flex">
-                                    <img src="{{asset('frontend/images/footer/visa.png')}}" alt="">
-                                    <img src="{{asset('frontend/images/footer/mc.png')}}" alt="">
-                                    <img src="{{asset('frontend/images/footer/yape.png')}}" alt="">
+                                    <img src="{{asset('img/visa.svg')}}" alt="">
+                                    <img src="{{asset('img/mastercard.svg')}}" alt="">
+                                    <img src="{{asset('img/yape.svg')}}" alt="">
                                 </div>
                             </li>
                         </ul>
@@ -121,17 +121,17 @@
                 <div class="social-links">
                     @if (setting()->facebook)
                     <a href="{{setting()->facebook}}" target="_blank" class="social-facebook ">
-                        <img src="{{asset('frontend/images/footer/fb.png')}}" alt="facebook">
+                        <img src="{{asset('img/Facebook.svg')}}" alt="facebook">
                     </a>
                     @endif
                     @if (setting()->instagram)
                     <a href="{{setting()->instagram}}" target="_blank" class="social-instagram ">
-                        <img src="{{asset('frontend/images/footer/ig.png')}}" alt="instagram">
+                        <img src="{{asset('img/Instagram.svg')}}" alt="instagram">
                     </a>
                     @endif
                     @if (setting()->twitter)
                     <a href="{{setting()->twitter}}" target="_blank" class="social-twitter ">
-                        <img src="{{asset('frontend/images/footer/tw.png')}}" alt="twitter">
+                        <img src="{{asset('img/Twitter.svg')}}" alt="twitter">
                     </a>
                     @endif
                 </div>

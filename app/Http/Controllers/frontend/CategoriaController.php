@@ -12,6 +12,7 @@ class CategoriaController extends Controller
     {
         $pagina = 'productos';
         $categorias = Categoria::orderBy('titulo', 'asc')->get();
+        //dd($categoria);
         return view('productos', compact('categoria', 'pagina', 'categorias'));
     }
 }

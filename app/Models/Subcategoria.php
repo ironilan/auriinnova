@@ -25,7 +25,7 @@ class Subcategoria extends Model
     /****** muchos a muchos ***************/
     public function medidas()
     {
-        return $this->belongsToMany(Medida::class)->orderBy('titulo', 'desc');
+        return $this->belongsToMany(Medida::class)->orderBy('medidas.orden', 'desc');
     }
 
     public function getRouteKeyName()

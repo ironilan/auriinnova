@@ -42,7 +42,7 @@
                 <a href="#">{{$novedad->categoria ? $novedad->categoria->titulo : ''}}</a>
             </div>
             <h3 class="product-name">
-                <a href="{{ route('productos.show', $novedad) }}">{{$novedad->titulo}}</a>
+                <a href="{{ route('productos.show', $novedad) }}">{{$novedad->nombre}}</a>
             </h3>
             <div class="product-price">
                 <del class="old-price">{{$novedad->precio_antes}} </del>

@@ -1,19 +1,4 @@
-<div class="row owl-carousel owl-theme" data-owl-options="{
-        'items': 4,
-        'dots': 'true',
-        'nav': true,             
-        'responsive': {
-            '0': {
-                'items': 2
-            },
-            '768': {
-                'items': 3
-            },
-            '992': {
-                'items': 4
-            }
-        }
-    }">
+<div class=" owl-carousel owl-theme carousel_categorias" >
     @foreach ($categorias as $categoria)
     <div class="mr-2 mb-4">
         <div

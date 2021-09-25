@@ -8,7 +8,7 @@
 
     <meta name="keywords" content="{{setting()->keywords}}" />
     <meta name="description" content="{{setting()->description}}">
-    <meta name="author" content="D-THEMES">
+    <meta name="author" content="Alexis Valdez">
 
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="{{Storage::url(setting()->favicon)}}">

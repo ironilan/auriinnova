@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -43,6 +44,7 @@ class Medida extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Título', 'titulo')->rules('required','string', 'max:255'),
+            Number::make('orden')->min(1))->rules('required')
         ];
     }
 

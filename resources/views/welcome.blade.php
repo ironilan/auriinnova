@@ -8,9 +8,7 @@
         @include('components.slider')
 
 
-        <section class="grey-section pt-10 pb-10 appear-animate" data-animation-options="{
-		    'delay': '.3s'
-		}">
+        <section class="grey-section pt-10 pb-10 appear-animate">
 		    <div class="container pt-3">
 		        <h2 class="title">Nuestras Categorías</h2>
 		        <div id="responseCategorias"></div>
@@ -179,7 +177,8 @@
                     }
                 }">
                     @foreach ($clientes as $cliente)
-                    <figure><img src="{{$cliente->logo}}" alt="{{$cliente->titulo}}" width="180" height="100" />
+                    <figure>
+                        <img src="{{$cliente->logo}}" alt="{{$cliente->titulo}}" class="img_cliente" />
                     </figure>
                     @endforeach
                 </div>
@@ -201,6 +200,27 @@
         let url = '{{ url('getCategorias') }}';
         $.get(url, res => {
             $('#responseCategorias').html(res);
+            $(".carousel_categorias").owlCarousel({
+                'items': 4,
+                'nav': true,
+                'loop': true,
+                'dots': true,
+                'margin': 20,
+                'autoplay': true,
+                'responsive': {
+                    '0': {
+                        'items': 2
+                    },
+                    '768': {
+                        'items': 3
+                    },
+                    '992': {
+                        'items': 4,
+                        'dots': true,
+                        'nav': true
+                    }
+                }
+            });
         });
     }
 

@@ -56,7 +56,7 @@ class ProductoController extends Controller
     {
         $idcategoria = $request->idcategoria;
 
-        $productos = Producto::where('categoria_id', $idcategoria)->orderBy('precio_final', 'asc')->get();
+        $productos = Producto::where('categoria_id', $idcategoria)->orderBy('precio_final', 'asc')->paginate(20);
 
         //
         return view('response.productos', compact('productos'));
@@ -117,15 +117,22 @@ class ProductoController extends Controller
 
     public function searchProducto(Request $request)
     {
+        if (!$request->criterio and isset($request->idcategoria)) {
+            return redirect('/');
+        }
+
         $idcategoria = $request->idcategoria;
 
         $categoria = Categoria::find($idcategoria);
         if (!$categoria) {
-            return redirect('/');
-        }
-        $productos = Producto::where('categoria_id', $idcategoria)
+            $productos = Producto::where('nombre', 'LIKE', '%'.$request->criterio.'%')
+                    ->orderBy('precio_final', 'asc')->paginate(20);
+        }else{
+            $productos = Producto::where('categoria_id', $idcategoria)
                     ->where('nombre', 'LIKE', '%'.$request->criterio.'%')
-                    ->orderBy('precio_final', 'asc')->paginate(16);
+                    ->orderBy('precio_final', 'asc')->paginate(20);
+        }
+        
 
         $pagina = 'productos';
         $categorias = Categoria::orderBy('titulo', 'asc')->get();

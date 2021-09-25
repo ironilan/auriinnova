@@ -23,8 +23,8 @@
 							<div class="filter-actions">
 								<a href="#"
 									class="sidebar-toggle-btn toggle-remain btn btn-sm btn-outline btn-primary">Filtrar<i
-										class="d-icon-arrow-left"></i></a>
-								{{-- <a href="#" class="filter-clean text-primary">Limpiar</a> --}}
+										class="d-icon-arrow-left"></i>
+								</a>
 							</div>
 							<div class="widget widget-collapsible">
 								<h3 class="widget-title">Categorías</h3>
@@ -64,9 +64,7 @@
 		</div>
 	</div>
 
-	<section class="product-wrapper bg-white appear-animate  pt-10 pb-8" data-animation-options="{
-            'delay': '.3s'
-        }">
+	<section class="product-wrapper bg-white appear-animate  pt-10 pb-8">
         <div class="container">
             <h2 class="title">Productos relacionados</h2>
             <div id="responseProductosRelacionados"></div>
@@ -125,6 +123,29 @@
         let url = `{{ url('getProductosRelacionados') }}`;
         $.get(url, res =>{
             $('#responseProductosRelacionados').html(res);
+            setTimeout(() => {
+            	$(".carousel_relacionados").owlCarousel({
+					'items': 5,
+				        'nav': true,
+				        'loop': true,
+				        'dots': true,
+				        'margin': 20,
+				        'autoplay': true,
+				        'responsive': {
+				            '0': {
+				                'items': 2
+				            },
+				            '768': {
+				                'items': 3
+				            },
+				            '992': {
+				                'items': 5,
+				                'dots': true,
+				                'nav': true
+				            }
+				        }
+				});
+            }, 1000)
         });
     }
 
@@ -166,7 +187,9 @@
 		@endif
 		
 
+        
         getProductosRelacionados();
+        
 
         getBanner();
 	});
