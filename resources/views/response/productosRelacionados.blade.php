@@ -26,7 +26,7 @@
                 <a href="{{ route('productos.show', $prodRel) }}">{{$prodRel->nombre}}</a>
             </h3>
             <div class="product-price">
-                <del class="old-price">{{$prodRel->precio_antes}} </del>
+                <span class="old-price">{{$prodRel->precio_antes}} </span>
                 <ins class="new-price"> S/. {{$prodRel->precio_final}}</ins>
                 
             </div>

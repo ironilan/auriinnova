@@ -67,7 +67,7 @@
                             <li class="mt-5_">
                                 <div class="footer_flex">
                                     <img src="{{asset('img/visa.svg')}}" alt="">
-                                    <img src="{{asset('img/mastercard.svg')}}" alt="">
+                                    <img src="{{Storage::url('mastercard.png')}}" alt="">
                                     <img src="{{asset('img/yape.svg')}}" alt="">
                                 </div>
                             </li>

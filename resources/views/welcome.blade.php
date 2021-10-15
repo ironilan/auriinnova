@@ -55,16 +55,16 @@
                             <img src="{{$bg->imagen}}" alt="banner" width="380"
                                 height="207" />
                         </figure>
-                        <div class="banner-content">
+                        {{-- <div class="banner-content">
                             <h3 class="banner-title font-weight-bold mb-0">{!!$bg->titulo!!}</h3>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 @endforeach
             </div>
         </section>
 
-        <section class="product-wrapper pt-10 pb-10  appear-animate bg-white" data-animation-options="{
+        {{-- <section class="product-wrapper pt-10 pb-10  appear-animate bg-white" data-animation-options="{
 		    'delay': '.6s'
 		}">
 		    <div class="container">
@@ -111,7 +111,7 @@
 		            @endforeach		            
 		        </div>
 		    </div>
-		</section>
+		</section> --}}
 
         <section class="intro-section">
             <div class="">
@@ -130,13 +130,13 @@
                     </div>
                     @endforeach --}}
                     @foreach ($bannerinferior as $bi)
-                    <div class="banner banner-fixed {{$bi->tipo == 'imagen' ? 'intro-slide1 ' : 'video-banner intro-slide3'}}" >
+                    <div class="banner banner-fixed app_banner_principal {{$bi->tipo == 'imagen' ? 'intro-slide1 ' : 'video-banner intro-slide3'}}" >
                         @if ($bi->tipo == 'imagen')
-                        <img src="{{$bi->imagen}}" alt="{{$bi->titulo}}"> 
-                        @else
-                        <figure>
-                            <video src="{{$bi->imagen}}" width="1903" height="630"></video>
-                        </figure>
+                        <img src="{{$bi->imagen}}" alt="{{$bi->title}}" style="height: 450px; width: 100%;"> 
+                        @else                
+                            <video autoplay loop  style="height: 450px; width: 100%;" class="myVideo">
+                                <source src="{{$bi->imagen}}" type="video/mp4" />
+                            </video>                
                         @endif          
                     </div>
                     @endforeach
@@ -195,6 +195,8 @@
 
 @section('scripts')
 
+
+
 <script>
     const getCategorias = () => {
         let url = '{{ url('getCategorias') }}';
@@ -235,7 +237,23 @@
     $(document).ready(() => {
         getNovedades();
         getCategorias();
+
+        var myVideo = document.getElementsByClassName('myVideo');
+        if (typeof myVideo.loop == 'boolean') { // loop supported
+          myVideo.loop = true;
+        } else { // loop property not supported
+          myVideo.addEventListener('ended', function () {
+            this.currentTime = 0;
+            this.play();
+          }, false);
+        }
+        //...
+        myVideo.play();
     });
 </script>
+
+@endsection
+
+@section('estilos')
 
 @endsection

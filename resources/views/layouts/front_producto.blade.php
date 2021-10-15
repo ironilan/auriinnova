@@ -33,6 +33,12 @@
 	<!-- Main CSS File -->
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/estilos.css')}}">
+
+	<style>
+		.sticky-footer{
+            display: none;
+        }
+	</style>
 </head>
 
 <body>

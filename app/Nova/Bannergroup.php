@@ -42,7 +42,7 @@ class Bannergroup extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Título', 'titulo')->rules('required','string', 'max:255'),
+            Text::make('Título', 'titulo'),
             Text::make('Link de la image', 'imagen')
         ];
     }

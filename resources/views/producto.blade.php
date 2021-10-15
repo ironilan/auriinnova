@@ -72,8 +72,9 @@
 							<label>Color:</label>
 							<div class="product-variations">
 								@foreach ($colores as $color)
+								
 								<a class="color" href="{{route('productos.show', $color)}}"
-									style="background-color: {{$color->codigo_color}}" title="{{$color->color}}"></a>
+									style="background-color: {{$color->codigo_color}}!important" title="{{$color->color}}"></a>
 								@endforeach
 								
 							</div>

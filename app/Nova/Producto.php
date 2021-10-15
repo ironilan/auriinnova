@@ -65,7 +65,7 @@ class Producto extends Resource
             Heading::make('Datos de color'),
             Text::make('Color (negro)','color')->rules('required','string', 'max:255')->hideFromIndex(),
             Text::make('Código de color','codigo_color')->rules('required','string', 'max:255')->hideFromIndex(),
-            Text::make('Código de color para filtrado','codigo_color_filtro')->rules('required','string', 'max:255')->hideFromIndex(),
+            Text::make('Código de color para filtrado','codigo_color_filtro')->rules('required','string', 'max:255'),
 
             Heading::make('Detalle'),
             Text::make('procedencia')->rules('required','string', 'max:255')->hideFromIndex(),

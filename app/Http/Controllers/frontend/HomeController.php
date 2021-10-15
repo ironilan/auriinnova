@@ -84,7 +84,7 @@ class HomeController extends Controller
     public function getBannerProductos()
     {
         $banners = Bannerproductos::orderBy('id', 'desc')->get();
-
+        //dd($banners);
         return view('response.bannerProductos', compact('banners'));
     }
 

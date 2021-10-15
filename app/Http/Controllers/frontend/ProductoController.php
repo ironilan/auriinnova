@@ -47,6 +47,10 @@ class ProductoController extends Controller
     {
         $pagina = 'productos';
         $colores = Producto::where('codigo_color_filtro', $producto->codigo_color_filtro)->get();
+
+        //dd($producto);
+
+
         return view('producto', compact('producto', 'pagina', 'colores'));
     }
 
@@ -59,7 +63,7 @@ class ProductoController extends Controller
         $productos = Producto::where('categoria_id', $idcategoria)->orderBy('precio_final', 'asc')->paginate(20);
 
         //
-        return view('response.productos', compact('productos'));
+        return view('response.productos', compact('productos', 'idcategoria'));
     }
 
 
@@ -71,7 +75,7 @@ class ProductoController extends Controller
 
         //return response()->json($productos);
         //
-        return view('response.productosSubcategoria', compact('productos'));
+        return view('response.productosSubcategoria', compact('productos', 'idsubcategoria'));
     }
 
 
@@ -84,7 +88,7 @@ class ProductoController extends Controller
             $query->where('medidas.id', $idmedida);
         })
         ->where('subcategoria_id', $idsubcategoria)
-        ->orderBy('precio_final', 'asc')->paginate(16);
+        ->orderBy('precio_final', 'asc')->paginate(100);
 
 
         // $doctors = Doctor::with('categories')->whereHas('categories', function ($query) {
@@ -93,7 +97,7 @@ class ProductoController extends Controller
 
         //return response()->json($productos->appends());
         //
-        return view('response.productos', compact('productos'));
+        return view('response.productos', compact('productos', 'idsubcategoria'));
     }
 
 

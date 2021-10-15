@@ -44,7 +44,7 @@ class Medida extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Título', 'titulo')->rules('required','string', 'max:255'),
-            Number::make('orden')->min(1))->rules('required')
+            Number::make('orden')->min(1)->rules('required')
         ];
     }
 

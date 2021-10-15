@@ -53,6 +53,10 @@
         .new-price{
             margin-left: 1rem;
         }
+
+        .sticky-footer{
+            display: none;
+        }
     </style>
 </head>
 

@@ -35,7 +35,7 @@
 										<a href="javascript:void(0)" onclick="getBannerCategoria({{$cat->id}})">{{$cat->titulo}}</a>
 										<ul style="{{$cat->id == $categoria->id ? 'display: block' : 'display: none'}}">
 									@else
-									<li class="with-ul ">
+									<li class="with-ul " onclick="getBannerCategoria({{$cat->id}})">
 										<a href="javascript:void(0)">{{$cat->titulo}}</a>
 										<ul style="display: none">
 									@endif
@@ -119,6 +119,7 @@
 	}
 
 
+	//los productos relacionados
     const getProductosRelacionados = () => {
         let url = `{{ url('getProductosRelacionados') }}`;
         $.get(url, res =>{
@@ -178,20 +179,23 @@
 	$(document).ready(() =>{
 		@if (Request::path() == 'productos')
 			getProductosAll();
+			getBanner();
 		@else
 			@if(isset($categoria))
 			getProductosCategoria('{{$categoria->id}}');
+			getBannerCategoria({{$categoria->id}});
 			@else
 			getSubcategoriaMedidas('{{$subcategoria->id}}');
+			getBannerCategoria({{$subcategoria->categoria->id}});
 			@endif
 		@endif
 		
-
+		
         
         getProductosRelacionados();
         
 
-        getBanner();
+       // getBanner();
 	});
 
 
@@ -214,6 +218,33 @@
 		let page = $(this).attr('href').split('page=')[1];
 		let subcategoria = $('.paginateSubctegoria').attr('data-id');
 		let route = `{{ url('getProductosSubcategoria') }}?idsubcategoria=${subcategoria}&page=${page}`;
+
+
+		$.get(route, res => {
+			$('#responseProductos').html(res);
+		});
+	});
+
+	$(document).on('click', '.paginateSubctegoriaMedidas nav .pagination a', function(e){
+		e.preventDefault();
+
+		let page = $(this).attr('href').split('page=')[1];
+		let subcategoria = $('.paginateSubctegoriaMedidas').attr('data-id');
+		let route = `{{ url('getProductosSubcategoria') }}?idsubcategoria=${subcategoria}&page=${page}`;
+
+
+		$.get(route, res => {
+			$('#responseProductos').html(res);
+		});
+	});
+
+
+	$(document).on('click', '.PaginateProductosCategoria nav .pagination a', function(e){
+		e.preventDefault();
+
+		let page = $(this).attr('href').split('page=')[1];
+		let categoria = $('.PaginateProductosCategoria').attr('data-id');
+		let route = `{{ url('getProductosCategoria') }}?idcategoria=${categoria}&page=${page}`;
 
 
 		$.get(route, res => {

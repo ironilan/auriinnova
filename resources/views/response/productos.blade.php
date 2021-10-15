@@ -14,7 +14,7 @@
 				@endif
 				
 				<div class="product-action">
-					<a href="{{ route('productos.show', $prod) }}" data-id="{{$prod->id}}" class="btn-product btn-quickview" title="Quick View">Ver más</a>
+					<a href="{{ route('productos.show', $prod) }}" data-id="{{$prod->id}}" class="btn-product btn-quickview" title="Ver más">Ver más</a>
 				</div>
 			</figure>
 			<div class="product-details">
@@ -26,7 +26,7 @@
 					<a href="{{ route('productos.show', $prod) }}">{{$prod->nombre}}</a>
 				</h3>
 				<div class="product-price">
-					<del class="old-price">{{$prod->precio_antes}} </del>
+					<span class="old-price">{{$prod->precio_antes}} </span>
 					<ins class="new-price"> S/. {{$prod->precio_final}}</ins>
 					
 				</div>
@@ -45,9 +45,20 @@
 						
 </div>
 
-<div class="productosAll">
+@if (isset($idcategoria))
+<div class=" PaginateProductosCategoria"  data-id="{{$prod->categoria ? $prod->categoria->id : ''}}">
 	{{$productos->links()}}
 </div>
+@elseif(isset($idsubcategoria))
+<div class=" paginateSubctegoriaMedidas"  data-id="{{$prod->subcategoria ? $prod->subcategoria->id : ''}}">
+	{{$productos->links()}}
+</div>
+@else
+<div class="productosAll "  >
+	{{$productos->links()}}
+
+</div>
+@endif
 
 @else
 <div class="product-wrap">
